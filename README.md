@@ -89,3 +89,30 @@ If a critical hardware failure occurs during initialization (e.g., a sensor is d
 * Implementation of PID Control Loop for active stabilization.
 * Two-way communication (sending commands from PC to STM32).
 * Advanced Kalman Filter for better altitude estimation.
+
+##  Unit Testing (Telemetry Module)
+To ensure the reliability of the communication protocol before deploying to hardware, I implemented **Unit Tests** using the **Unity Test Framework**.
+
+This allows me to verify the logic of packet generation and data integrity algorithms on a host machine (PC) independent of the STM32 hardware.
+
+### Test Coverage
+The test suite (`test_main.c`) covers the following critical scenarios:
+
+* Packet Creation: Verifies that `telemetry_create_packet` correctly populates the header (`0xABCD`), timestamp, and sensor data (Pitch, Roll, Altitude).
+* Checksum Validation: Confirms that the XOR Checksum is calculated correctly for valid packets.
+* Error Detection: Uses `telemetry_inject_error` to simulate data corruption and asserts that the system correctly identifies invalid packets.
+
+### How to Run Tests
+The tests are designed to be compiled with a standard C compiler (GCC).
+
+```bash
+# Example compilation command
+gcc test_main.c telemetry.c unity/src/unity.c -o test_app.exe
+
+# Output
+./test_app.exe
+# [Pass] test_telemetry_packet_creation
+# [Pass] test_telemetry_checksum_valid
+# [Pass] test_telemetry_checksum_invalid
+# -----------------------
+# 3 Tests 0 Failures 0 Ignored
