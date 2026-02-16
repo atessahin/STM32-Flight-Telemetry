@@ -60,8 +60,8 @@ The following table outlines how the STM32F4 interacts with the sensors and comm
 
 | STM32 Pin | Peripheral | Function | Connected Device |
 | :--- | :--- | :--- | :--- |
-| **PB6** | `I2C1` | **SCL** | MPU6050, BMP280, OLED Display |
-| **PB7** | `I2C1` | **SDA** | MPU6050, BMP280, OLED Display |
+| **PB6** | `I2C1` | **SCL** | MPU6050, BME280, OLED Display |
+| **PB7** | `I2C1` | **SDA** | MPU6050, BME280, OLED Display |
 | **PA2** | `USART2` | **TX** | ESP32 (RX Pin) |
 | **PA3** | `USART2` | **RX** | ESP32 (TX Pin) |
 | **PA10** | `GPIO` | **Output** | Status LED / Debug |
