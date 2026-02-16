@@ -81,7 +81,7 @@ If a critical hardware failure occurs during initialization (e.g., a sensor is d
 | Blink Count | Failed Component | Possible Cause |
 | :---: | :--- | :--- |
 | **2x Blinks** | **MPU6050 (IMU)** | Sensor not found at address `0x68`. Check wiring or pull-up resistors. |
-| **3x Blinks** | **BMP280 (Barometer)** | Sensor not responding. Check connection or I2C address configuration. |
+| **3x Blinks** | **BME280 (Barometer)** | Sensor not responding. Check connection or I2C address configuration. |
 
 > **Note:** The blink pattern consists of a **1-second ON** pulse followed by a **0.5-second OFF** interval. The sequence repeats after a **2-second** long pause.
 ---
