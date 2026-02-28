@@ -116,3 +116,34 @@ gcc test_main.c telemetry.c unity/src/unity.c -o test_app.exe
 # [Pass] test_telemetry_checksum_invalid
 # -----------------------
 # 3 Tests 0 Failures 0 Ignored
+```
+---
+## PC-Side Testing (UDP Ground Station Simulation)
+If you want to test the telemetry system you can simulate the Ground Station on your computer.
+
+On the PC side, the system behaves as a UDP Server that receives telemetry packets sent over WiFi (via ESP32 bridge).
+
+To understand or modify this part:
+
+(**Review the components/ directory**)
+
+(**Review the main_telemetry/ files**)
+
+These folders contain the PC-side implementation that:
+
+Acts as a UDP Server
+
+Receives serialized telemetry packets
+
+Parses and validates incoming data (Header + XOR Checksum)
+
+Displays or logs real-time flight data
+
+This allows you to:
+
+Test packet integrity
+
+Validate end-to-end wireless data transmission
+
+⚠️ Make sure the ESP32 and PC are on the same network and the correct UDP port is configured before testing.
+---
